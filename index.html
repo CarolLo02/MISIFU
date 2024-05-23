@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="icon" type="images/png" href="favicon.png">
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         /* Estilo del mensaje de bienvenida */
         .bienvenida {
             text-align: center;
@@ -40,6 +44,32 @@
         #mi-carrusel {
             margin: 20px;
         }
+
+        footer{
+            background-color: cadetblue;
+            color: white;
+            padding: 5rem;
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual ancho */
+            grid-template-rows: auto auto; /* Dos filas automáticas */
+            gap: 1rem; /* Espacio entre las cajas, ajusta según sea necesario */
+            text-align: center;
+            justify-content: center;
+            justify-items: center; 
+          }
+          
+          .box1, .box2, .box3 {
+            padding: .5rem; 
+            width: 100%;
+          }
+          
+          .box3 {
+            grid-column: span 2; /* Hace que la caja ocupe ambas columnas en la segunda fila */
+          }
+          
     </style>
 </head>
 <body>
@@ -115,33 +145,23 @@
             <span class="sr-only">Siguiente</span>
         </a>
     </div>
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-           
-        </div>
-        <i class="fas fa-user-check"></i>Trabaja con Nosotros
-        <div style="width: 20px;"></div>        
-        
-        <a class="navbar-brand" href="#">
-            <img src="images/misifu-logo-79F2D984E1-seeklogo.com.png" alt="logo" width="90">
-        </a>
-    </nav>
 
-    <footer>
-        <div class="container-fluid mx-auto" style="width: 200px;">
-            <div class="row mx-auto" style="width: 200px;">
-                <div class="col-md-4" id="contacto">
-                    <i class="fas fa-user-check"></i>Trabaja con Nosotros
-                    <div style="width: 20px;"></div>   
-                </div>
-            </div>
+      <footer class="footer">
+        <div class="box1">
+            <a class="navbar-brand" href="#">
+                <img src="images/misifu-logo-79F2D984E1-seeklogo.com.png" alt="logo" width="90">
+            </a>
         </div>
-    </footer>
+        <div class="box2">
+            <h3>Contacto</h3>
+              <p><strong>Correo electrónico:</strong> atencionalcliente@misifu.co</p>
+              <p><strong>Teléfono:</strong> 3123456789</p>
+        </div>
+        <div class="box3">
+            <h3>Derechos de autor</h3>
+            <p>&copy; 2024 MISIFU. Todos los derechos reservados.</p>
+        </div>
+      </footer>
 
     <!-- Scripts de Bootstrap y jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
