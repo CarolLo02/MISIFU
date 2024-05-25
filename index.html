@@ -45,21 +45,36 @@
             margin: 20px;
         }
 
-        footer{
-            background-color: cadetblue;
+        footer {
+            background-color: #333;
             color: white;
-            padding: 5rem;
+            padding: 20px 0;
         }
 
-        .footer {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual ancho */
-            grid-template-rows: auto auto; /* Dos filas automáticas */
-            gap: 1rem; /* Espacio entre las cajas, ajusta según sea necesario */
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .footer-section img {
+            max-width: 100px;
+            margin-left: 800px;
+            
+            
+        }
+
+        .footer-bottom {
             text-align: center;
-            justify-content: center;
-            justify-items: center; 
-          }
+            margin-top: 20px;
+            font-size: 14px;
+        }
           
           .box1, .box2, .box3 {
             padding: .5rem; 
@@ -77,7 +92,7 @@
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="images/logo (2).png" alt="logo" width="90">
+            <img src="images/MISIFU2.png" alt="logo" width="90">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -94,7 +109,7 @@
                     <a class="nav-link boton-navegacion" href="https://api.whatsapp.com/send/?phone=573132744774&text=Adopt%C3%A9monos&type=phone_number&app_absent=0">Adopciones</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link boton-navegacion" href="#contacto">Contáctenos</a>
+                    <a class="nav-link boton-navegacion" href="contacto.html">Contáctenos</a>
                 </li>
                 
             </ul>
@@ -146,22 +161,21 @@
         </a>
     </div>
 
-      <footer class="footer">
-        <div class="box1">
-            <a class="navbar-brand" href="#">
-                <img src="images/misifu-logo-79F2D984E1-seeklogo.com.png" alt="logo" width="90">
-            </a>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contáctenos</h3>
+                <p>Email: info@misifu.com</p>
+                <p>Tel: +57 3125897480</p>
+            </div>
+            <div class="footer-section">
+                <img src="images/misifu-logo-79F2D984E1-seeklogo.com.png" alt="Logo">
+            </div>
         </div>
-        <div class="box2">
-            <h3>Contacto</h3>
-              <p><strong>Correo electrónico:</strong> atencionalcliente@misifu.co</p>
-              <p><strong>Teléfono:</strong> 3123456789</p>
+        <div class="footer-bottom">
+            &copy; 2024 MISIFU. Todos los derechos reservados.
         </div>
-        <div class="box3">
-            <h3>Derechos de autor</h3>
-            <p>&copy; 2024 MISIFU. Todos los derechos reservados.</p>
-        </div>
-      </footer>
+    </footer>
 
     <!-- Scripts de Bootstrap y jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
