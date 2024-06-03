@@ -1,8 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import CustomAuthenticationForm
+from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User 
+from django.contrib import messages
 
 def home_view(request):
     return render(request, 'home.html')
@@ -51,13 +53,15 @@ def ingreso_view(request):
 
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('ingreso')
+            form.save()
+            messages.success(request, 'Usuario creado exitosamente.')
+            return redirect('login')
+        else:
+            print(form.errors)  # Imprimir errores del formulario en la consola
+            messages.error(request, 'Error al crear el usuario. Verifique los datos e intente nuevamente.')
     else:
-        form = UserCreationForm()
-    return render(request, 'accounts/signup.html', {'form': form})
-
+        form = CustomUserCreationForm()
+    return render(request, 'signup.html', {'form': form})
 

@@ -1,0 +1,52 @@
+<!-- templates/accounts/signup.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}¡Regístrate!{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">¡Regístrate!</legend>
+                    <div class="form-group">
+                        <label for="id_username">Nombre de usuario:</label>
+                        <input type="text" name="username" class="form-control" id="id_username">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_nombre_completo">Nombre completo:</label>
+                        <input type="text" name="nombre_completo" class="form-control" id="id_nombre_completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_email">Correo electrónico:</label>
+                        <input type="email" name="email" class="form-control" id="id_email">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">Contraseña:</label>
+                        <input type="password" name="password1" class="form-control" id="id_password">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password_confirmation">Confirmar contraseña:</label>
+                        <input type="password" name="password2" class="form-control" id="id_password_confirmation">
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-info">Crear cuenta</button>
+                </div>
+            </form>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    ¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión</a>
+                </small>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/cat.jpg' %}" alt="Cat Image" class="img-fluid" style="width: 120%; height: 100%;">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
