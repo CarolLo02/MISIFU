@@ -55,13 +55,17 @@ def signup_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Usuario creado exitosamente.')
-            return redirect('login')
+            user = form.save()
+            user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Usuario creado exitosamente.')
+                return redirect('login')  # Redirige a la página de inicio u otra página después del registro exitoso
+            else:
+                messages.error(request, 'Error en la autenticación. Verifique sus credenciales e intente nuevamente.')
         else:
-            print(form.errors)  # Imprimir errores del formulario en la consola
             messages.error(request, 'Error al crear el usuario. Verifique los datos e intente nuevamente.')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'accounts/signup.html', {'form': form})
 
