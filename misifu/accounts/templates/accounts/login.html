@@ -14,7 +14,7 @@
                 <button type="submit" class="btn btn-catblue btn-block mt-3">Ingresar</button>
             </form>
             <div class="text-center mt-3">
-                <a href="#">Registrarse</a>
+                <a href="{% url 'signup' %}">Registrarse</a>
             </div>
             {% if messages %}
                 {% for message in messages %}

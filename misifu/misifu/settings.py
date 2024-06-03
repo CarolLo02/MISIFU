@@ -17,6 +17,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -87,5 +89,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 LOGIN_REDIRECT_URL = 'ingreso'
 LOGOUT_REDIRECT_URL = 'login'
 
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
